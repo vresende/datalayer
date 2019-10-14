@@ -1,0 +1,31 @@
+{
+  "name": "vresende/datalayer",
+  "description": "Datalayer is a Datalayer-based SQL Server database abstraction component created by Robson V. Leite",
+  "keywords": [
+    "SQL Server",
+    "Database",
+    "PDO",
+    "Save",
+    "Delete",
+    "Destroy",
+    "CRUD"
+  ],
+  "homepage": "http://www.foxmarketingdigital.com.br",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vinicius R. Santos",
+      "email": "vinicius@foxmarketingdigital.com.br",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vresende\\DataLayer\\": "src"
+    }
+  }
+}
