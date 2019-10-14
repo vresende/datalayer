@@ -1,9 +1,6 @@
 # Data Layer SQlServer
 
-[![Maintainer](http://img.shields.io/badge/maintainer-@robsonvleite-blue.svg?style=flat-square)](https://twitter.com/vresende)
-[![Source Code](http://img.shields.io/badge/source-coffeecode/datalayer-blue.svg?style=flat-square)](https://github.com/vresende/datalayer)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/coffeecode/datalayer.svg?style=flat-square)](https://packagist.org/packages/vresende/datalayer)
-[![Latest Version](https://img.shields.io/github/release/robsonvleite/datalayer.svg?style=flat-square)](https://github.com/vresende/datalayer/releases)
+
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 
