@@ -27,12 +27,14 @@
             if (empty(self::$instance)) {
                 try {
                     self::$instance = new PDO(
-                        "sqlsrv:Server=" . DATA_LAYER_CONFIG["host"] . ";Database=" . DATA_LAYER_CONFIG["dbname"] . ";" . (!empty(DATA_LAYER_CONFIG["port"]) ? "port=" . DATA_LAYER_CONFIG["port"] : ""),
+                        "sqlsrv:Server=" . DATA_LAYER_CONFIG["host"] .(!empty(DATA_LAYER_CONFIG["port"]) ?  ",".DATA_LAYER_CONFIG["port"] : "").";Database=" . DATA_LAYER_CONFIG["dbname"] . ";",
                         DATA_LAYER_CONFIG["username"],
                         DATA_LAYER_CONFIG["passwd"],
                         DATA_LAYER_CONFIG["options"]
                     );
+                    var_dump(__LINE__);
                 } catch (PDOException $exception) {
+
                     self::$error = $exception;
                 }
             }
