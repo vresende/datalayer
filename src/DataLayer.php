@@ -135,6 +135,7 @@
          */
         public function findById(int $id, string $columns = "*"): ?DataLayer
         {
+
             $find = $this->find($this->primary . " = :id", "id={$id}", $columns);
             return $find->fetch();
         }
@@ -190,7 +191,7 @@
 
                 return $stmt->fetchObject(static::class);
             } catch (PDOException $exception) {
-                //   var_dump($exception);
+
                 $this->fail = $exception;
                 return null;
             }
