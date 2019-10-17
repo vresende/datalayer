@@ -234,12 +234,18 @@
                 /** Update */
                 if (!empty($this->data->$primary)) {
                     $id = $this->data->$primary;
-                    $this->update($this->safe(), $this->primary . " = :id", "id={$id}");
+                    $res = $this->update($this->safe(), $this->primary . " = :id", "id={$id}");
                 }
 
                 /** Create */
+
                 if (empty($this->data->$primary)) {
                     $id = $this->create($this->safe());
+                }
+                if (!$this->autoIncrement) {
+                    if ($res < 1) {
+                        $id = $this->create($this->safe());
+                    }
                 }
 
                 if (!$id) {
