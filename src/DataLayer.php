@@ -20,6 +20,8 @@
 
         /** @var string $primary table primary key field */
         private $primary;
+        /** @var bool $autoIncrement primaryKey autoIncrement */
+        private $autoIncrement;
 
         /** @var array $required table required fields */
         private $required;
@@ -55,12 +57,13 @@
          * @param string $primary
          * @param bool $timestamps
          */
-        public function __construct(string $entity, array $required, string $primary = 'id', bool $timestamps = true)
+        public function __construct(string $entity, array $required, string $primary = 'id', bool $timestamps = true, bool $autoIncrement = true)
         {
             $this->entity = $entity;
             $this->primary = $primary;
             $this->required = $required;
             $this->timestamps = $timestamps;
+            $this->autoIncrement = $autoIncrement;
         }
 
         /**
@@ -102,11 +105,12 @@
             return $this->data;
         }
 
-        /**
-         * @return PDOException|null
-         */
-        public function fail(): ?PDOException
+
+        public function fail(): ?object
         {
+            if(!empty($this->fail)){
+                return $this->fail;
+            }
             return $this->fail;
         }
 
