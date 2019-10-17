@@ -296,7 +296,9 @@
         protected function safe(): ?array
         {
             $safe = (array)$this->data;
-            unset($safe[$this->primary]);
+            if ($this->autoIncrement) {
+                unset($safe[$this->primary]);
+            }
 
             return $safe;
         }
