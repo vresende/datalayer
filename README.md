@@ -20,7 +20,7 @@ O data layer é um componente para abstração de persistência no seu banco de 
 Data Layer is available via Composer:
 
 ```bash
-"vresende/datalayer": "^1.0"
+"vresende/datalayer": "^1.5.3"
 ```
 
 or run
@@ -37,9 +37,9 @@ Para mais detalhes sobre como usar o Data Layer, veja a pasta de exemplo com det
 
 #### connection
 
-######To begin using the Data Layer, you need to connect to the database (MariaDB / MySql). For more connections [PDO connections manual on PHP.net](https://www.php.net/manual/pt_BR/pdo.drivers.php)
+######To begin using the Data Layer, you need to connect to the database (SQL Server). For more connections [PDO connections manual on PHP.net](https://www.php.net/manual/pt_BR/pdo.drivers.php)
 
-Para começar a usar o Data Layer precisamos de uma conexão com o seu banco de dados. Para ver as conexões possíveis acesse o [manual de conexões do PDO em PHP.net](https://www.php.net/manual/pt_BR/pdo.drivers.php)
+Para começar a usar o Data Layer precisamos de uma conexão com o seu banco de dados (SQL Server). Para ver as conexões possíveis acesse o [manual de conexões do PDO em PHP.net](https://www.php.net/manual/pt_BR/pdo.drivers.php)
 
 ```php
 define("DATA_LAYER_CONFIG", [
