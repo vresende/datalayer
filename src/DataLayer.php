@@ -56,9 +56,15 @@
          * @param array $required
          * @param string $primary
          * @param bool $timestamps
+         * @param bool $autoIncrement
          */
-        public function __construct(string $entity, array $required, string $primary = 'id', bool $timestamps = true, bool $autoIncrement = true)
-        {
+        public function __construct(
+            string $entity,
+            array $required,
+            string $primary = 'id',
+            bool $timestamps = true,
+            bool $autoIncrement = true
+        ) {
             $this->entity = $entity;
             $this->primary = $primary;
             $this->required = $required;
@@ -108,7 +114,7 @@
 
         public function fail(): ?object
         {
-            if(!empty($this->fail)){
+            if (!empty($this->fail)) {
                 return $this->fail;
             }
             return $this->fail;
