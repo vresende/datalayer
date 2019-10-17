@@ -31,7 +31,7 @@
                 $stmt = Connect::getInstance()->prepare("INSERT INTO {$this->entity} ({$columns}) VALUES ({$values})");
                 $stmt->execute($this->filter($data));
 
-                return Connect::getInstance()->lastInsertId();
+                return $stmt->rowCount();
             } catch (PDOException $exception) {
                 $this->fail = $exception;
                 return null;
