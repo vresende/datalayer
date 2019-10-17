@@ -252,7 +252,6 @@
                     return false;
                 }
 
-                $this->data = $this->findById($id)->data();
                 return true;
             } catch (Exception $exception) {
                 $this->fail = $exception;
