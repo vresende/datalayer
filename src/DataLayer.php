@@ -166,7 +166,7 @@
                 return $this;
             }
 
-            $this->statement = "SELECT {$this->limit} {$columns} FROM {$this->entity}";
+            $this->statement = "SELECT {$this->distinct} {$this->limit} {$columns} FROM {$this->entity}";
             return $this;
         }
 
