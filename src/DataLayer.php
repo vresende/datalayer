@@ -23,6 +23,12 @@
         /** @var bool $autoIncrement primaryKey autoIncrement */
         private $autoIncrement;
 
+      /** @var string */
+        private $distinct;
+
+        /** @var string */
+        private $groupBy;
+
         /** @var array $required table required fields */
         private $required;
 
@@ -111,13 +117,39 @@
             return $this->data;
         }
 
+        /**
+         * @param string $groupBy
+         * @return DataLayer|null
+         */
+        public function groupBy(string $groupBy): ?DataLayer
+        {
+            $this->groupBy = " GROUP BY {$groupBy}";
+            return $this;
+        }
 
+        /**
+         * @return DataLayer|null
+         */
+        public function distinct(): ?DataLayer
+        {
+            $this->distinct = " DISTINCT";
+            return $this;
+        }
+
+        /**
+         * @return object|null
+         */
         public function fail(): ?object
         {
             if (!empty($this->fail)) {
-                return $this->fail;
+                $fail = new stdClass();
+                $fail->message = $this->fail->getMessage();
+                $fail->code = $this->fail->getCode();
+                $fail->file = $this->fail->getFile();
+                $fail->line = $this->fail->getLine();
+                return $fail;
             }
-            return $this->fail;
+            return null;
         }
 
         /**
@@ -129,7 +161,7 @@
         public function find(?string $terms = null, ?string $params = null, string $columns = "*"): DataLayer
         {
             if ($terms) {
-                $this->statement = "SELECT {$this->limit} {$columns} FROM {$this->entity} WHERE {$terms}";
+                $this->statement = "SELECT {$this->distinct} {$this->limit} {$columns} FROM {$this->entity} WHERE {$terms}";
                 parse_str($params, $this->params);
                 return $this;
             }
@@ -188,7 +220,7 @@
         {
 
             try {
-                $stmt = Connect::getInstance()->prepare($this->statement . $this->order . $this->offset);
+                $stmt = Connect::getInstance()->prepare($this->statement . $this->groupBy . $this->order . $this->offset);
                 $stmt->execute($this->params);
 
                 if (!$stmt->rowCount()) {
