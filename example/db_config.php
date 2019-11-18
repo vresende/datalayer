@@ -1,5 +1,5 @@
 <?php
-    define("DATA_LAYER_CONFIG1",
+    define("DATA_LAYER_CONFIG",
         [
             "host" => "localhost",
             "port" => null,
